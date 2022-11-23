@@ -1,0 +1,1 @@
+export 'package:booking_aja/extension/extension.dart';

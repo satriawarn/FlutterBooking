@@ -4,12 +4,11 @@ import 'package:flutter/material.dart';
 class PrimaryButton extends StatelessWidget {
   const PrimaryButton(
       {Key? key,
-      this.type = PrimaryButtonType.type1,
+      this.type = PrimaryButtonType.type3,
       required this.onPressed,
       required this.text,
       this.width = 78})
       : super(key: key);
-
   final PrimaryButtonType type;
   final VoidCallback? onPressed;
   final String text;
@@ -37,7 +36,7 @@ class PrimaryButton extends StatelessWidget {
           ),
         ),
         child: Text(
-          "Download",
+          text,
           style: AppFont.componentSmall.copyWith(color: AppColor.ink06),
         ),
       ),
@@ -57,7 +56,7 @@ class PrimaryButton extends StatelessWidget {
           ),
         ),
         child: Text(
-          "Download",
+          text,
           style: AppFont.componentMediumBold.copyWith(color: AppColor.ink06),
         ),
       ),
@@ -65,14 +64,28 @@ class PrimaryButton extends StatelessWidget {
   }
 
   Widget _type3() {
-    return ElevatedButton(
-      onPressed: onPressed,
-      child: Text(
-        "Download",
-        style: AppFont.componentSmall,
+    return SizedBox(
+      width: width,
+      height: 57,
+      child: ElevatedButton(
+        onPressed: onPressed,
+        style: ElevatedButton.styleFrom(
+          backgroundColor: AppColor.ink01,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(4),
+          ),
+        ),
+        child: Text(
+          text,
+          style: AppFont.componentLarge.copyWith(color: AppColor.ink06),
+        ),
       ),
     );
   }
 }
 
-enum PrimaryButtonType { type1, type2, type3 }
+enum PrimaryButtonType {
+  type1,
+  type2,
+  type3,
+}
