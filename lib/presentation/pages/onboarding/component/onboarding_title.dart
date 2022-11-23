@@ -1,4 +1,4 @@
-import 'package:booking_aja/extension/double_extension.dart';
+import 'package:booking_aja/utils/extension/double_extension.dart';
 import 'package:booking_aja/presentation/pages/onboarding/onboarding_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

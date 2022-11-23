@@ -1,4 +1,4 @@
-import 'package:booking_aja/extension/double_extension.dart';
+import 'package:booking_aja/utils/extension/double_extension.dart';
 import 'package:booking_aja/presentation/widget/primary_button.dart';
 import 'package:booking_aja/presentation/widget/secondary_button.dart';
 import 'package:flutter/material.dart';
