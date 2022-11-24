@@ -5,6 +5,8 @@ import 'forgot_password_cubit.dart';
 import 'forgot_password_state.dart';
 
 class Forgot_passwordPage extends StatelessWidget {
+  const Forgot_passwordPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return BlocProvider(

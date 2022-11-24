@@ -26,8 +26,8 @@ class SecondaryButton extends StatelessWidget {
 
   Widget _type1() {
     return SizedBox(
-      height: 24,
-      width: width,
+      height: 24.h,
+      width: width.w,
       child: OutlinedButton(
         onPressed: onPressed,
         style: OutlinedButton.styleFrom(
@@ -47,8 +47,8 @@ class SecondaryButton extends StatelessWidget {
 
   Widget _type2() {
     return SizedBox(
-      height: 32,
-      width: width,
+      height: 32.h,
+      width: width.w,
       child: OutlinedButton(
         onPressed: onPressed,
         style: OutlinedButton.styleFrom(
@@ -68,8 +68,8 @@ class SecondaryButton extends StatelessWidget {
 
   Widget _type3() {
     return SizedBox(
-      height: 57,
-      width: width,
+      height: 57.h,
+      width: width.w,
       child: OutlinedButton(
         onPressed: onPressed,
         style: OutlinedButton.styleFrom(

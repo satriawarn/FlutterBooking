@@ -5,6 +5,8 @@ import 'finish_cubit.dart';
 import 'finish_state.dart';
 
 class FinishPage extends StatelessWidget {
+  const FinishPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
