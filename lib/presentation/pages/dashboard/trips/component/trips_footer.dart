@@ -1,4 +1,5 @@
 import 'package:booking_aja/data/src/img_string.dart';
+import 'package:booking_aja/presentation/pages/dashboard/trips/detail/detail_view.dart';
 import 'package:booking_aja/utils/extension/double_extension.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -58,45 +59,52 @@ class TripsFooter extends StatelessWidget {
   }
 
   Widget _roommieItem(BuildContext context) {
-    return Container(
-      width: (MediaQuery.of(context).size.width / 2) - AppDimen.w38,
-      margin: EdgeInsets.only(
-        left: AppDimen.w16,
-        top: AppDimen.h24,
-        bottom: AppDimen.h16,
-      ),
-      padding: EdgeInsets.only(
-        right: AppDimen.w16,
-        left: AppDimen.w16,
-        bottom: AppDimen.h16,
-        top: 49.h,
-      ),
-      decoration: BoxDecoration(
-        color: AppColor.ink06,
-        borderRadius: BorderRadius.circular(AppDimen.w16),
-      ),
-      child: Column(
-        children: [
-          Expanded(
-            child: Image.asset(
-              ImgString.cittaPlants,
+    return InkWell(
+      onTap: () {
+        Navigator.of(context).push(
+          MaterialPageRoute(builder: (context) => DetailPage()),
+        );
+      },
+      child: Container(
+        width: (MediaQuery.of(context).size.width / 2) - AppDimen.w38,
+        margin: EdgeInsets.only(
+          left: AppDimen.w16,
+          top: AppDimen.h24,
+          bottom: AppDimen.h16,
+        ),
+        padding: EdgeInsets.only(
+          right: AppDimen.w16,
+          left: AppDimen.w16,
+          bottom: AppDimen.h16,
+          top: 49.h,
+        ),
+        decoration: BoxDecoration(
+          color: AppColor.ink06,
+          borderRadius: BorderRadius.circular(AppDimen.w16),
+        ),
+        child: Column(
+          children: [
+            Expanded(
+              child: Image.asset(
+                ImgString.cittaPlants,
+              ),
             ),
-          ),
-          37.0.height,
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(
-                "Eric",
-                style: AppFont.paragraphLargeBold,
-              ),
-              Text(
-                "\$500",
-                style: AppFont.paragraphSmall,
-              ),
-            ],
-          ),
-        ],
+            37.0.height,
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  "Eric",
+                  style: AppFont.paragraphLargeBold,
+                ),
+                Text(
+                  "\$500",
+                  style: AppFont.paragraphSmall,
+                ),
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }
