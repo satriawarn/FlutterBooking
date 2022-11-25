@@ -1,9 +1,12 @@
+import 'package:booking_aja/presentation/pages/dashboard/favorite/favorite_view.dart';
 import 'package:booking_aja/presentation/pages/onboarding/onboarding_view.dart';
 import 'package:booking_aja/presentation/pages/welcome/finish/finish_view.dart';
 import 'package:booking_aja/presentation/pages/welcome/login/login_view.dart';
 import 'package:booking_aja/presentation/pages/welcome/welcome_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+import 'presentation/pages/dashboard/dashboard_view.dart';
 
 void main() {
   runApp(const MyApp());
@@ -27,7 +30,7 @@ class MyApp extends StatelessWidget {
             primarySwatch: Colors.blue,
             fontFamily: 'Poppins',
           ),
-          home: const FinishPage(),
+          home: const DashboardPage(),
         );
       },
     );
