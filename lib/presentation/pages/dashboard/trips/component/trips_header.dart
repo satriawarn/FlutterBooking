@@ -94,11 +94,11 @@ class TripsHeader extends StatelessWidget {
               mainAxisSize: MainAxisSize.min,
               children: [
                 Text(
-                  "Testing",
+                  "Eric",
                   style: AppFont.paragraphMediumBold,
                 ),
                 Text(
-                  "Jakarta",
+                  "Yogyakarta",
                   style: AppFont.paragraphSmall.copyWith(
                     color: AppColor.ink02,
                   ),
