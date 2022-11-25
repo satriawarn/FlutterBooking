@@ -1,3 +1,4 @@
+import 'package:booking_aja/presentation/pages/dashboard/favorite/favorite_view.dart';
 import 'package:booking_aja/presentation/pages/onboarding/onboarding_view.dart';
 import 'package:booking_aja/presentation/pages/welcome/finish/finish_view.dart';
 import 'package:booking_aja/presentation/pages/welcome/login/login_view.dart';
