@@ -1,6 +1,8 @@
 import 'package:bloc/bloc.dart';
 import 'package:booking_aja/config/config.dart';
+import 'package:booking_aja/data/model/base_response.dart';
 import 'package:booking_aja/domain/controller/auth_controller.dart';
+import 'package:booking_aja/utils/helper/helper.dart';
 import 'package:logging/logging.dart';
 
 import 'login_state.dart';
@@ -11,10 +13,13 @@ class LoginCubit extends Cubit<LoginState> implements HttpState{
   late final AuthController _authController = AuthController(this);
 
   void login() async {
-    _authController.login(
+    BaseResponse baseResponse = await _authController.login(
       state.emailController.text,
       state.passwordController.text,
     );
+    PrefHelper.instance.saveToken(baseResponse.result?.login?.token ?? "");
+
+    Logger.root.info("Token ${PrefHelper.instance.token}");
   }
 
   @override
