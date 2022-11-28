@@ -1,12 +1,14 @@
 import 'package:booking_aja/config/router/app_router.dart';
+import 'package:booking_aja/utils/helper/helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:logging/logging.dart';
 import 'package:get_it/get_it.dart';
 
-void main() {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   GetIt.I.registerSingleton<AppRouter>(AppRouter());
+  await PrefHelper.instance.init();
   Logger.root.level = Level.ALL;
   Logger.root.onRecord.listen((event) {
     debugPrint(event.message);
