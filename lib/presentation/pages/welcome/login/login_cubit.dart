@@ -3,8 +3,10 @@ import 'package:booking_aja/config/config.dart';
 import 'package:booking_aja/data/model/base_response.dart';
 import 'package:booking_aja/domain/controller/auth_controller.dart';
 import 'package:booking_aja/utils/helper/helper.dart';
+import 'package:get_it/get_it.dart';
 import 'package:logging/logging.dart';
 
+import '../../../../config/router/app_router.dart';
 import 'login_state.dart';
 
 class LoginCubit extends Cubit<LoginState> implements HttpState{
@@ -20,6 +22,10 @@ class LoginCubit extends Cubit<LoginState> implements HttpState{
     PrefHelper.instance.saveToken(baseResponse.result?.login?.token ?? "");
 
     Logger.root.info("Token ${PrefHelper.instance.token}");
+
+    if (baseResponse.result?.login?.token != null) {
+      GetIt.I<AppRouter>().replace(const DashboardRoute());
+    }  
   }
 
   @override
