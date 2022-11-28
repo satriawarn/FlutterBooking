@@ -16,12 +16,15 @@ dependencies:
   http: ^0.13.5
   logging: ^1.1.0
   shared_preferences: ^2.0.15
-
+  auto_route: ^5.0.4
+  get_it: ^7.2.0
 
 dev_dependencies:
   flutter_lints: ^2.0.0
   flutter_test:
     sdk: flutter
+  auto_route_generator: ^5.0.3
+  build_runner: ^2.3.2
 
 flutter:
   uses-material-design: true
