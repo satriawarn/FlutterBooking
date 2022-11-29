@@ -6,10 +6,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../../../../../data/model/trip/trip.dart';
 import '../trips_cubit.dart';
+import '../trips_state.dart';
 
 class TripsHeader extends StatelessWidget {
-  const TripsHeader({Key? key}) : super(key: key);
+  const TripsHeader({
+    Key? key,
+    required this.topValue,
+  }) : super(key: key);
+  final List<Trip> topValue;
 
   @override
   Widget build(BuildContext context) {
@@ -61,13 +67,13 @@ class TripsHeader extends StatelessWidget {
   Widget _roomiesList() {
     return Expanded(
       child: ListView.builder(
-        itemBuilder: (c, i) => _roommieItem(),
-        itemCount: 3,
+        itemBuilder: (c, i) => _roommieItem(topValue[i]),
+        itemCount: topValue.length,
       ),
     );
   }
 
-  Widget _roommieItem() {
+  Widget _roommieItem(Trip trip) {
     return Container(
       height: 72.0.h,
       width: double.infinity,
@@ -94,11 +100,11 @@ class TripsHeader extends StatelessWidget {
               mainAxisSize: MainAxisSize.min,
               children: [
                 Text(
-                  "Eric",
+                  trip.name ?? "",
                   style: AppFont.paragraphMediumBold,
                 ),
                 Text(
-                  "Yogyakarta",
+                  trip.location ?? "",
                   style: AppFont.paragraphSmall.copyWith(
                     color: AppColor.ink02,
                   ),

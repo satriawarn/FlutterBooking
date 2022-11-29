@@ -1,15 +1,21 @@
 import 'package:booking_aja/data/src/img_string.dart';
 import 'package:booking_aja/presentation/pages/dashboard/trips/detail/detail_view.dart';
 import 'package:booking_aja/utils/extension/double_extension.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../../config/config.dart';
+import '../../../../../data/model/trip/trip.dart';
 import '../trips_cubit.dart';
 
 class TripsFooter extends StatelessWidget {
-  const TripsFooter({Key? key}) : super(key: key);
+  const TripsFooter({
+    Key? key,
+    required this.bottomValue,
+  }) : super(key: key);
+  final List<Trip> bottomValue;
 
   @override
   Widget build(BuildContext context) {
@@ -49,16 +55,25 @@ class TripsFooter extends StatelessWidget {
   }
 
   Widget _roomiesList(BuildContext context) {
+    final cubit = BlocProvider.of<TripsCubit>(context);
     return Expanded(
-      child: ListView.builder(
-        itemBuilder: (c, i) => _roommieItem(context),
-        itemCount: 3,
-        scrollDirection: Axis.horizontal,
-      ),
+      child: cubit.state.status == HttpStateStatus.loading
+          ? const Center(
+              child: CupertinoActivityIndicator(),
+            )
+          : cubit.state.status == HttpStateStatus.error
+              ? const Center(
+                  child: Text("Error!"),
+                )
+              : ListView.builder(
+                  itemBuilder: (c, i) => _roommieItem(context, bottomValue[i]),
+                  itemCount: bottomValue.length,
+                  scrollDirection: Axis.horizontal,
+                ),
     );
   }
 
-  Widget _roommieItem(BuildContext context) {
+  Widget _roommieItem(BuildContext context, Trip trip) {
     return InkWell(
       onTap: () {
         Navigator.of(context).push(
@@ -93,12 +108,14 @@ class TripsFooter extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text(
-                  "Eric",
-                  style: AppFont.paragraphLargeBold,
+                Flexible(
+                  child: Text(
+                    trip.name ?? "",
+                    style: AppFont.paragraphLargeBold,
+                  ),
                 ),
                 Text(
-                  "\$500",
+                  "\$${trip.price ?? 0}",
                   style: AppFont.paragraphSmall,
                 ),
               ],

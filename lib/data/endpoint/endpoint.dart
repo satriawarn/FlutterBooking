@@ -6,5 +6,5 @@ class Endpoint {
   static const String forgotPassword = "$BASE_URL/forgotPassword";
   static const String logout = "$BASE_URL/logout";
 
-  static const String trip = "$BASE_URL/trip";
+  static const String trips = "$BASE_URL/trips";
 }

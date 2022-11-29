@@ -44,9 +44,9 @@ class Result {
     }
 
     if (json['bottom'] != null) {
-      topValue = [];
+      bottomValue = [];
       json['bottom'].forEach((v) {
-        topValue?.add(Trip.fromJson(v));
+        bottomValue?.add(Trip.fromJson(v));
       });
     }
   }
@@ -68,4 +68,11 @@ class Result {
         topValue: topValue ?? this.topValue,
         bottomValue: bottomValue ?? this.bottomValue,
       );
+
+  Map toJson() => {
+    'login': login,
+    'trip': trip?.toJson() ?? {},
+    'top': topValue?.map((e) => e.toJson()).toList() ?? [],
+    'bottom': bottomValue?.map((e) => e.toJson()).toList() ?? [],
+  };
 }

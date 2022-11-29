@@ -19,14 +19,20 @@ class TripsPage extends StatelessWidget {
 
   Widget _buildPage(BuildContext context) {
     final cubit = BlocProvider.of<TripsCubit>(context);
-
-    return Column(
-      children: const [
-        TripsHeader(),
-        TripsFooter(),
-      ],
+    cubit.getTrips();
+    return BlocBuilder<TripsCubit, TripsState>(
+      builder: (context, state) {
+        return Column(
+          children: [
+            TripsHeader(
+              topValue: state.topValue,
+            ),
+            TripsFooter(
+              bottomValue: cubit.state.bottomValue,
+            ),
+          ],
+        );
+      },
     );
   }
 }
-
-

@@ -15,9 +15,6 @@ class DashboardPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final ApiClient apiClient = ApiClient();
-    apiClient.get(Uri.parse(
-        "https://898795a4-3d39-4db8-b8c6-367ef02e3b5d.mock.pstmn.io/api/v1/trips"));
     return BlocProvider(
       create: (BuildContext context) => DashboardCubit(),
       child: Builder(builder: (context) => _buildPage(context)),
